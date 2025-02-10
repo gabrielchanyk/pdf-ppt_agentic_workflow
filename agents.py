@@ -8,7 +8,7 @@ import os
 
 class CustomAgents:
     def __init__(self):
-        self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
+        self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9)
         self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
 
 
@@ -31,7 +31,7 @@ class CustomAgents:
         # json_tool = JSONSearchTool("summaries.json")
         return Agent(
             role="PowerPoint Assistant",
-            goal="Create PowerPoint presentations from JSON data",
+            goal="Create PowerPoint presentations",
             backstory=dedent(f"""
                 You are an AI assistant specializing in creating PowerPoint presentations using the Python-PPTX library. 
                 Your task is to analyze the summaries from pdf agent, 

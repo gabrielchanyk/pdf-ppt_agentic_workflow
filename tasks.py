@@ -29,7 +29,7 @@ class CustomTasks:
         return Task(
             description=dedent(
                 f"""
-            First, retrieve the json's content, and then pip installs the python-pptx using a code interpreter.
+            Pip installs the python-pptx using a code interpreter.
             After that, run the code to create graphs from the data.
             Then, write the code using Python-pptx to create a PowerPoint.
 
@@ -41,7 +41,7 @@ class CustomTasks:
             Make sure to be as accurate as possible. 
             """
             ),
-            expected_output="Presentation was created about {var1} with all relevant information",
+            expected_output="Powerpoint presentation was created about {var1} with all information provided by the pdf agent not just an outline.",
             agent=agent,
-            output_file="presentation.pptx"
+            output_file="output/presentation.txt"
         )
