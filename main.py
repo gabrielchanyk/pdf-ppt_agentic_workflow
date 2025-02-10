@@ -19,16 +19,16 @@ class CustomCrew:
         tasks = CustomTasks()
 
         # Define your custom agents and tasks here
-        finder_agent = agents.finder_agent()
-        analysis_agent = agents.analysis_agent()
+        pdf_agent = agents.pdf_agent()
+        ppt_agent = agents.ppt_agent()
 
         # Custom tasks include agent name and variables as input
-        task1 = tasks.finder_task(
-            finder_agent,
+        task1 = tasks.pdf_task(
+            pdf_agent,
             self.var1
         )
-        task2 = tasks.analyze_task(
-            analysis_agent,
+        task2 = tasks.ppt_task(
+            ppt_agent,
             self.var1
         )
 
@@ -36,7 +36,7 @@ class CustomCrew:
 
         # Define your custom crew here
         crew = Crew(
-            agents=[finder_agent, analysis_agent],
+            agents=[pdf_agent, ppt_agent],
             tasks=[task1, task2],
             verbose=True,
         )

@@ -9,32 +9,39 @@ class CustomTasks:
     def __tip_section(self):
         return "I'll give you a huge commission for your work!"
     
-    def finder_task(self, agent, var1):
+    def pdf_task(self, agent, var1):
         return Task(
             description=dedent(
                 f"""
-            Identify which pdfs uses the "{var1}" keyword and list the pdfs
-                                       
-            {self.__tip_section()}
-        """
-            ),
-            expected_output="Give the names of the pdfs with the relevant information to the analysis agent for use",
-            agent=agent,
-        )
-
-    def analyze_task(self, agent, var1):
-        return Task(
-            description=dedent(
-                f"""
-            Summarize each of the pdfs in the list given by the finder agent and return the title and a bullet point of the summaries if there is no list, reply with finder agent did not find anything relevant.
+            Tell me precisely what I need to know from the pdfs with the focus of {var1}.
             
             {self.__tip_section()}
     
             Make sure to be as accurate as possible. 
         """
             ),
-            expected_output="Only give information of the pdfs that are given by finder agent. Give the name of the pdf, and a summary of the the document with a TL:DR about {var1}",
+            expected_output="Full analysis on the topic given by {var1} providing all information in json format. Give summaries at least 5 - 10 sentences long of all pdf files.",
             agent=agent,
-            # context=self.finder_task
+            output_file="output/summaries.json",
         )
+    
+    def ppt_task(self, agent, var1):
+        return Task(
+            description=dedent(
+                f"""
+            First, retrieve the json's content, and then pip installs the python-pptx using a code interpreter.
+            After that, run the code to create graphs from the data.
+            Then, write the code using Python-pptx to create a PowerPoint.
 
+            Ensure that the ppt is detailed and has proper formatting 
+            that makes it look good. The graphs in it should be factual. 
+            
+            {self.__tip_section()}
+    
+            Make sure to be as accurate as possible. 
+            """
+            ),
+            expected_output="Presentation was created about {var1} with all relevant information",
+            agent=agent,
+            output_file="presentation.pptx"
+        )
