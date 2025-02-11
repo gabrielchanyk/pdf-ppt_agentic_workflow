@@ -8,7 +8,7 @@ import os
 
 class CustomAgents:
     def __init__(self):
-        self.llm = LLM(model="ollama/phi3:3.8b")
+        self.llm = LLM(model="ollama/phi4:latest")
 
     def pdf_agent(self):
         pdf_folder = "pdfs"  # Folder name containing PDF files
@@ -31,7 +31,7 @@ class CustomAgents:
             role="PowerPoint Assistant",
             goal="Create PowerPoint presentations",
             backstory=dedent(f"""
-                You are an AI assistant specializing in creating PowerPoint presentations using the Python-PPTX library. 
+                You are an AI assistant specializing in creating PowerPoint presentation template using information from pdf agent. 
                 Your task is to analyze the summaries from pdf agent, 
                 extract critical insights, and generate relevant charts based on this data. 
                 Finally, create a well-structured presentation that includes these charts and any necessary images, 

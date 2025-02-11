@@ -4,10 +4,12 @@ from textwrap import dedent
 from crewai import Crew
 from decouple import config
 
-from agents import CustomAgents
+# from agents import CustomAgents
+from agents_local import CustomAgents
 from tasks import CustomTasks
 
-os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")
+# os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"] = "sk-proj-dummy"
 
 class CustomCrew:
     def __init__(self, var1):
