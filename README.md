@@ -1,6 +1,8 @@
-# document_searcher_agent
+# pdf-ppt_agentic_workflow
 
-This agent is built to read multiple documents and create a powerpoint template based on the information in the documentations
+This agentic is built to read multiple documents and create a powerpoint template based on the information in the documentations
+
+This stack uses python, crewai, ollama and openai models
 
 Setup
 
