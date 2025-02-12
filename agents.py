@@ -8,6 +8,7 @@ import os
 
 class CustomAgents:
     def __init__(self):
+        # temperature is used to control "creativity" or randomness of text generated
         self.OpenAIGPT35 = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.9)
         self.OpenAIGPT4 = ChatOpenAI(model_name="gpt-4", temperature=0.7)
 
