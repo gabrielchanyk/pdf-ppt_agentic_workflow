@@ -4,12 +4,12 @@ from textwrap import dedent
 from crewai import Crew
 from decouple import config
 
-# from agents import CustomAgents
-from agents_local import CustomAgents
+from agents import CustomAgents
+# from agents_local import CustomAgents
 from tasks import CustomTasks
 
-# os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")
-os.environ["OPENAI_API_KEY"] = "sk-proj-dummy"
+os.environ["OPENAI_API_KEY"] = config("OPENAI_API_KEY")
+# os.environ["OPENAI_API_KEY"] = "sk-proj-dummy"
 
 class CustomCrew:
     def __init__(self, var1):
@@ -51,7 +51,7 @@ class CustomCrew:
 if __name__ == "__main__":
     print("## Welcome to Crew AI Template")
     print("-------------------------------")
-    var1 = input(dedent("""Enter variable 1: """))
+    var1 = input(dedent("""Enter topic to focus on: """))
 
     custom_crew = CustomCrew(var1)
     result = custom_crew.run()

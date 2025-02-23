@@ -13,14 +13,14 @@ class CustomTasks:
         return Task(
             description=dedent(
                 f"""
-            Tell me precisely what I need to know from the pdfs with the focus of {var1}.
+            Within the pdf files available there is revelant information on the topic of {var1}. Please create appropriate summaries for each pdf file with at least 5-6 sentences in json format.
             
             {self.__tip_section()}
     
             Make sure to be as accurate as possible. 
         """
             ),
-            expected_output="Full analysis on the topic given by {var1} providing all information in json format. Give summaries at least 5 - 10 sentences long of all pdf files.",
+            expected_output="Provide concise summaries of 5-6 sentences for each PDF document in JSON format, where the key is the file name.",
             agent=agent,
             output_file="output/summaries.json",
         )
@@ -29,19 +29,15 @@ class CustomTasks:
         return Task(
             description=dedent(
                 f"""
-            Pip installs the python-pptx using a code interpreter.
-            After that, run the code to create graphs from the data.
-            Then, write the code using Python-pptx to create a PowerPoint.
-
-            Ensure that the ppt is detailed and has proper formatting 
-            that makes it look good. The graphs in it should be factual. 
+            Create a detailed PowerPoint template in TXT format specifying what goes into each slide. 
+            Include potential graphs and graphics based on the data provided by the pdf agent.
             
             {self.__tip_section()}
     
             Make sure to be as accurate as possible. 
             """
             ),
-            expected_output="Powerpoint presentation was created about {var1} with all information provided by the pdf agent not just an outline.",
+            expected_output="PowerPoint presentation template was created about {var1} with information provided by the pdf agent summaries, including potential graphs and graphics.",
             agent=agent,
             output_file="output/presentation.txt"
         )
